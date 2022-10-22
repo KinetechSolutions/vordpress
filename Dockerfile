@@ -1,7 +1,9 @@
 FROM composer:latest AS dependencies
 
 COPY composer.* ./
-RUN composer install
+RUN --mount=type=secret,id=composer_auth,dst=/app/auth.json \
+    mkdir -p wp-content \
+    && composer install
 
 FROM bitnami/wordpress:6 AS wordpress
 

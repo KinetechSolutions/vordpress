@@ -6,6 +6,8 @@ services:
     hostname: wordpress
     build:
       context: .
+      secrets:
+        - composer_auth
     networks:
       internal:
         aliases:
@@ -83,6 +85,10 @@ services:
       external:
         aliases:
           - database.${DOMAIN}.${ENV}
+
+secrets:
+  composer_auth:
+    file: ./auth.json
 
 volumes:
   mariadb-data:

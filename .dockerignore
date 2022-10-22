@@ -1,3 +1,6 @@
 /vendor/
 /wp-content/
 /persist.d/
+/.aws/
+
+auth.json
