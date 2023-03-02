@@ -8,6 +8,7 @@ jobs:
   repo-sync:
     name: 'Synchronize Template Repository'
     runs-on: ubuntu-latest
+    if: github.repository != 'KinetechSolutions/vordpress'
     steps:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
